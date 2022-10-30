@@ -4,13 +4,43 @@ using UnityEngine;
 
 public class MenuHandle : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject primaryMenu;
+    public GameObject nextMenu;
     public void TrigerGameQuit()
     {
         UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
 
+    private void Awake()
+    {
+        
+    }
+
+    public void MainStartMenu()
+    {
+        print("start");
+    }
+
+    public void MainGameSetting()
+    {
+        print("settings");
+    }
+
+    public void MouseSens()
+    {
+        print("mouseS");
+    }
+
+    public void Windowmode()
+    {
+        print("windows");
+    }
+
+    public void backButtion()
+    {
+        print("back");
+    }
     void Start()
     {
 
