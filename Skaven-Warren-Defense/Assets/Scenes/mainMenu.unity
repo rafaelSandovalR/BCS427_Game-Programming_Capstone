@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 2538283}
   - component: {fileID: 2538282}
   - component: {fileID: 2538281}
+  - component: {fileID: 2538284}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -207,6 +208,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2538284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2538280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0ec0f92ea178046964c866d8029591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &78652482 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6925736542055914772, guid: 16ac79a0c35ae0348bf2c9b618751522, type: 3}
@@ -769,7 +782,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7938046710565657280, guid: 8b8dc66507b942e47b1f847e62df0470, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: TrigerGameQuit
+      value: backButtion
       objectReference: {fileID: 0}
     - target: {fileID: 7938046710565657280, guid: 8b8dc66507b942e47b1f847e62df0470, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -803,8 +816,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb32c4da8ad465458498dce6425dedf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryMenu: {fileID: 0}
-  nextMenu: {fileID: 0}
+  primaryMenu: {fileID: 1727980385}
+  nextMenu: {fileID: 891240243}
 --- !u!1 &777293008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1572,8 +1585,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb32c4da8ad465458498dce6425dedf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryMenu: {fileID: 0}
-  nextMenu: {fileID: 0}
+  primaryMenu: {fileID: 1727980385}
+  nextMenu: {fileID: 891240243}
 --- !u!1 &1638593732
 GameObject:
   m_ObjectHideFlags: 0
