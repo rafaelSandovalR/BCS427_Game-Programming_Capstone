@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5823621178628194964}
   - component: {fileID: 5823621178628194955}
   - component: {fileID: 5823621178628194954}
+  - component: {fileID: 6133058695228345777}
   - component: {fileID: 5823621178628194967}
   - component: {fileID: 6589196130213494714}
   m_Layer: 0
@@ -116,6 +117,21 @@ MonoBehaviour:
   whatCanBeClickedOn:
     serializedVersion: 2
     m_Bits: 64
+--- !u!114 &6133058695228345777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5823621178628194953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 141e8b99589782f4d8d17ce08c27c897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  minDist: 1
+  target: {fileID: 0}
 --- !u!195 &5823621178628194967
 NavMeshAgent:
   m_ObjectHideFlags: 0
