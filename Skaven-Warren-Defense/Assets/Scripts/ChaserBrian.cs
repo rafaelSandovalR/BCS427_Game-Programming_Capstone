@@ -3,7 +3,7 @@ using System.Collections;
 
 //[RequireComponent(typeof(CharacterController))]
 
-public class Chaser : MonoBehaviour {
+public class ChaserBrian : MonoBehaviour {
 	
 	public float speed = 20.0f;
 	public float minDist = 1f;
