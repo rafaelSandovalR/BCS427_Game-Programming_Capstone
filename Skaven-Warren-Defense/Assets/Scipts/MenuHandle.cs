@@ -44,6 +44,7 @@ public class MenuHandle : MonoBehaviour
     public void Windowmode()
     {
         print("windows");
+        
     }
 
     public void backButtion()
