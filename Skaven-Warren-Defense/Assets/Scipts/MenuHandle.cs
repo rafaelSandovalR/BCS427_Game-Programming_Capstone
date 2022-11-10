@@ -6,6 +6,11 @@ public class MenuHandle : MonoBehaviour
 {
     public GameObject primaryMenu;
     public GameObject nextMenu;
+
+    void start()
+    {
+        Application.targetFrameRate = 60;
+    }
     public void TrigerGameQuit()
     {
         UnityEditor.EditorApplication.isPlaying = false;
@@ -20,11 +25,15 @@ public class MenuHandle : MonoBehaviour
     public void MainStartMenu()
     {
         print("start");
+        nextMenu.SetActive(true);
+        primaryMenu.SetActive(false);
     }
 
     public void MainGameSetting()
     {
         print("settings");
+        nextMenu.SetActive(true);
+        primaryMenu.SetActive(false);
     }
 
     public void MouseSens()
@@ -40,6 +49,8 @@ public class MenuHandle : MonoBehaviour
     public void backButtion()
     {
         print("back");
+        nextMenu.SetActive(false);
+        primaryMenu.SetActive(true);
     }
     void Start()
     {

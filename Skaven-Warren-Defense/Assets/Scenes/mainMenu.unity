@@ -226,6 +226,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   primaryMenu: {fileID: 0}
   nextMenu: {fileID: 0}
+--- !u!1 &181483737 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3024961685034076193, guid: 16ac79a0c35ae0348bf2c9b618751522, type: 3}
+  m_PrefabInstance: {fileID: 7137906157112276226}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &225183747 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3566267254879159921, guid: 8b8dc66507b942e47b1f847e62df0470, type: 3}
@@ -886,7 +891,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &891240244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1546,7 +1551,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9150180523642338926, guid: 7dedcdcd03171f44281e55e83bb17d0b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dedcdcd03171f44281e55e83bb17d0b, type: 3}
@@ -1938,7 +1943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1727980386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2041,8 +2046,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7eb32c4da8ad465458498dce6425dedf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  primaryMenu: {fileID: 0}
-  nextMenu: {fileID: 0}
+  primaryMenu: {fileID: 1727980385}
+  nextMenu: {fileID: 181483737}
 --- !u!1 &1888860392 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7270232865799944606, guid: 8b8dc66507b942e47b1f847e62df0470, type: 3}
@@ -2249,6 +2254,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 1678473074984384854, guid: 16ac79a0c35ae0348bf2c9b618751522, type: 3}
+      propertyPath: nextMenu
+      value: 
+      objectReference: {fileID: 181483737}
+    - target: {fileID: 1678473074984384854, guid: 16ac79a0c35ae0348bf2c9b618751522, type: 3}
+      propertyPath: primaryMenu
+      value: 
+      objectReference: {fileID: 1727980385}
     - target: {fileID: 1999287957401174549, guid: 16ac79a0c35ae0348bf2c9b618751522, type: 3}
       propertyPath: m_Name
       value: mouseS
