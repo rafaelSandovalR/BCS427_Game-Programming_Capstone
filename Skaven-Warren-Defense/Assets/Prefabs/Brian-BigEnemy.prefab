@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8700151787615423159}
   - component: {fileID: -710630447252804468}
   m_Layer: 0
-  m_Name: BigEnemy
+  m_Name: Brian-BigEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
