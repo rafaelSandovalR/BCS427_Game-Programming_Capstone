@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Rafael_TestScene.unity
     guid: b134d799ed563204fbd2ea7201e8e1ff
+  - enabled: 1
+    path: Assets/Scenes/Tony_MenuScene.unity
+    guid: 5f3b1cc40f3af1f40b78cf19fc1cad6f
+  - enabled: 1
+    path: Assets/Scenes/FirstLevel.unity
+    guid: c05c3c5e132c7804783b39a98cd88860
   m_configObjects: {}

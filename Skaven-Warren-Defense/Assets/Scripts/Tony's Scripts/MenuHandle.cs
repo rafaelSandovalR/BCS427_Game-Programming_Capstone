@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuHandle : MonoBehaviour
 {
     public GameObject primaryMenu;
     public GameObject nextMenu;
+    public int playerChoice;
+    public int playerNum;
+    private bool windowScre = true;
 
     void start()
     {
@@ -17,10 +21,20 @@ public class MenuHandle : MonoBehaviour
         Application.Quit();
     }
 
+    public void PlayerChoice()
+    {
+        playerChoice = playerNum;
+    }
+
     private void Awake()
     {
         
     }
+
+    public void LoadLevel()
+    {
+        SceneManager.LoadScene(3);
+     }
 
     public void MainStartMenu()
     {
@@ -43,7 +57,18 @@ public class MenuHandle : MonoBehaviour
 
     public void Windowmode()
     {
-        print("windows");
+        if (windowScre == true)
+        {
+            Screen.fullScreenMode= FullScreenMode.MaximizedWindow;
+            windowScre = false;
+        }
+
+        if (windowScre == true)
+        {
+            Screen.fullScreenMode = FullScreenMode.Windowed;
+            windowScre = true;
+        }
+
     }
 
     public void backButtion()
