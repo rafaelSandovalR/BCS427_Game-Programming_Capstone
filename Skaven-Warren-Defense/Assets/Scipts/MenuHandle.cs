@@ -6,6 +6,8 @@ public class MenuHandle : MonoBehaviour
 {
     public GameObject primaryMenu;
     public GameObject nextMenu;
+    public int playerChoice;
+    public int playerNum;
 
     void start()
     {
@@ -17,6 +19,10 @@ public class MenuHandle : MonoBehaviour
         Application.Quit();
     }
 
+    public void PlayerChoice()
+    {
+        playerChoice = playerNum;
+    }
     private void Awake()
     {
         
