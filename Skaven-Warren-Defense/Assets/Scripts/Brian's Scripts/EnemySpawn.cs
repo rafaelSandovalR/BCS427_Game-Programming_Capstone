@@ -20,7 +20,6 @@ public class EnemySpawn : MonoBehaviour
     {
         StartCoroutine(spawnEnemy(enemySpawnInterval, enemyPrefab));
         StartCoroutine(spawnEnemy(enemyBigSpawnInterval, enemyBigPrefab));
-
     }
 
     // Update is called once per frame
