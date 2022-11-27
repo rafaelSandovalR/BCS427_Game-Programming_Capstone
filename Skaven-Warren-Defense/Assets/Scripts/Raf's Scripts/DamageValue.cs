@@ -10,8 +10,11 @@ public class DamageValue : MonoBehaviour
     public CharacterHealth characterHealth;
     public int damageValue = 5;
 
-    public bool checkCollision = false;
+    public GameObject target;
 
+    public int attackDistance = 1;
+    public int rateOfAttack = 1;
+    public int count;
 
     void Start()
     {
@@ -26,25 +29,48 @@ public class DamageValue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        attack();
+        if (detectEnemy())
+        {
+            count++;
+
+            if (count % (1000 / rateOfAttack) == 0)
+            {
+                attack();
+
+            }
+            
+        }
+        else
+        {
+            count = 0;
+        }
     }
 
-    private void attack()
+    private bool detectEnemy()
     {
         Vector3 origin = transform.position;
         Vector3 direction = transform.forward;
         Ray ray = new Ray(origin, direction);
-        Debug.DrawRay(origin, direction * 2, Color.red);
+        Debug.DrawRay(origin, direction * attackDistance, Color.red);
+
+        if (Physics.Raycast(ray, out RaycastHit h, attackDistance))
+        {
+            target = h.collider.gameObject;
+            if (target.CompareTag("Ally"))
+            {
+                return true;
+            }
+        }
+
+        target = null;
+        return false;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void attack()
     {
-        print("o");
-        if(collision.gameObject.tag == "Ally")
-        {
-            print("ok");
-            characterHealth = collision.gameObject.GetComponent<CharacterHealth>();
-            characterHealth.TakeDamage(damageValue);
-        }
+        
+        target.GetComponent<CharacterHealth>().TakeDamage(damageValue);
+        
     }
+
 }
