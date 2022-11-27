@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 7413284738585856340}
   - component: {fileID: 6589196129570085498}
   m_Layer: 0
-  m_Name: Rafael_Ally
+  m_Name: Raf_Ally
   m_TagString: Ally
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

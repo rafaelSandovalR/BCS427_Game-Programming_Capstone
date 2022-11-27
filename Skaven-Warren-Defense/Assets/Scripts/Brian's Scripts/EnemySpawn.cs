@@ -40,7 +40,10 @@ public class EnemySpawn : MonoBehaviour
         {
             yield return new WaitForSeconds(interval);
             GameObject newEnemy = Instantiate(enemy, new Vector3(Random.Range(-10f, 10), 1, 0), Quaternion.identity);
+            
+            //Added by Raf
             spawnCount++;
+
             StartCoroutine(spawnEnemy(interval, enemy));
         }
     }

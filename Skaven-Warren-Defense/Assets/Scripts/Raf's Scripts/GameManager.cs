@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 //Skaven Warren Defense
 
@@ -11,7 +12,21 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
     public static event Action<GameState> OnGameStateChanged;
 
-    public GameObject player;
+    public GameObject player;       //Main Character
+    public GameObject enemyWave;    // EnemySpawner object?
+
+    public int enemyCount;          // Keeps track of enemies left in wave
+    public Text enemyCounterDisplay;
+
+    public float startingTime;      // Time to begin with
+    private float currentTime;       // Time to countdown
+    public Text timerDisplay;
+
+    public AudioSource gameMusic;   // Music during gameplay
+
+
+
+
 
     private void Awake()
     {
@@ -26,11 +41,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
+        currentTime = startingTime;
+        
         UpdateGameObjects();
         UpdateGameState(GameState.Idle);
+        
+        //handle spawning allies ?
     }
 
     void UpdateGameObjects()
@@ -50,7 +68,8 @@ public class GameManager : MonoBehaviour
                 gameState = GameState.Idle;
                 break;
             case GameState.NextLevelPlay:
-                //startBtn.SetActive(false);
+                // THE COMMENTS IN THIS SECTION ARE FOR REFERENCE FROM OTHER GAME
+                //startBtn.SetActive(false);   
                 HandlePlayingGame();
                 break;
             case GameState.Playing:
@@ -99,8 +118,9 @@ public class GameManager : MonoBehaviour
         //switch to next level
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
+
         //update ui
 
         //handle timer
