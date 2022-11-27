@@ -212,7 +212,6 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -283,8 +282,9 @@ GameObject:
   - component: {fileID: 7872689424603001957}
   - component: {fileID: 7872689424603001956}
   - component: {fileID: 7872689424603001977}
-  - component: {fileID: 7413284738585856340}
   - component: {fileID: 6589196129570085498}
+  - component: {fileID: 7413284738585856340}
+  - component: {fileID: -1466207644265311407}
   m_Layer: 0
   m_Name: Raf_Ally
   m_TagString: Ally
@@ -306,7 +306,7 @@ Transform:
   m_Children:
   - {fileID: 6589196131137744383}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7872689424603001979
 MeshFilter:
@@ -409,6 +409,21 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6589196129570085498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7872689424603001959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7c5800d5ca2c004fa5d8ab62509a428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
+  healthbar: {fileID: 6589196131137744380}
 --- !u!114 &7413284738585856340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,18 +440,21 @@ MonoBehaviour:
   maxDistance: 10
   minDistance: 2
   speed: 10
---- !u!114 &6589196129570085498
+--- !u!114 &-1466207644265311407
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7872689424603001959}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7c5800d5ca2c004fa5d8ab62509a428, type: 3}
+  m_Script: {fileID: 11500000, guid: 63d0fd399f3db194e877f4c884c2025e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
-  healthbar: {fileID: 6589196131137744380}
+  characterHealth: {fileID: 0}
+  damageValue: 5
+  target: {fileID: 0}
+  attackDistance: 1
+  rateOfAttack: 1
+  count: 0

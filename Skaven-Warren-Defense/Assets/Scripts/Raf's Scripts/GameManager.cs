@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public GameObject player;       //Main Character
     public GameObject enemyWave;    // EnemySpawner object?
 
+    public int waveCount = 1;            // Keeps track of wave
+
     public int enemyCount;          // Keeps track of enemies left in wave
     public Text enemyCounterDisplay;
 
@@ -68,7 +70,7 @@ public class GameManager : MonoBehaviour
                 gameState = GameState.Idle;
                 break;
             case GameState.NextLevelPlay:
-                // THE COMMENTS IN THIS SECTION ARE FOR REFERENCE FROM OTHER GAME
+ // THE COMMENTS IN THIS SECTION ARE FOR REFERENCE FROM OTHER GAME
                 //startBtn.SetActive(false);   
                 HandlePlayingGame();
                 break;
@@ -100,12 +102,27 @@ public class GameManager : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player");
         }
 
-
         player.SetActive(true);
 
         //when the player wins a level
+        if(waveCount < 3  && enemyCount == 0)
+        {
+            UpdateGameState(GameState.WinLevel);
+        }
 
         //when the player loses a level
+        if (player == null)
+        {
+            UpdateGameState(GameState.LoseLevel);
+        }
+
+
+        //when the player wins the game
+        if (waveCount == 3 && enemyCount == 0)
+        {
+            UpdateGameState(GameState.WinGame);
+        }
+
     }
 
     public void HandleWinLevel()
