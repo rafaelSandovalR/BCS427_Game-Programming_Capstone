@@ -10,6 +10,9 @@ public class DamageValue : MonoBehaviour
     public CharacterHealth characterHealth;
     public int damageValue = 5;
 
+    public bool checkCollision = false;
+
+
     void Start()
     {
         GameManager.OnGameStateChanged += GMOnGameStateChanged;
@@ -23,13 +26,24 @@ public class DamageValue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        attack();
+    }
+
+    private void attack()
+    {
+        Vector3 origin = transform.position;
+        Vector3 direction = transform.forward;
+        Ray ray = new Ray(origin, direction);
+        Debug.DrawRay(origin, direction * 2, Color.red);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
+        print("o");
         if(collision.gameObject.tag == "Ally")
         {
+            print("ok");
+            characterHealth = collision.gameObject.GetComponent<CharacterHealth>();
             characterHealth.TakeDamage(damageValue);
         }
     }
