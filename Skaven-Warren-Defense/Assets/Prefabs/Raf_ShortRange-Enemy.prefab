@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 4508609233313671547}
   - component: {fileID: 4508609233313671540}
   m_Layer: 0
-  m_Name: Raf - Enemy
+  m_Name: Raf_ShortRange-Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -136,8 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  maxDistance: 5
-  minDistance: 1
+  sightDistance: 10
   speed: 2
 --- !u!114 &4508609233313671540
 MonoBehaviour:
@@ -155,5 +154,5 @@ MonoBehaviour:
   damageValue: 20
   target: {fileID: 0}
   attackDistance: 1
-  rateOfAttack: 1
+  rateOfAttack: 2
   count: 0

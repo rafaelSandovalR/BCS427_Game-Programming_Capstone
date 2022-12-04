@@ -71,6 +71,10 @@ public class DamageValue : MonoBehaviour
         
         target.GetComponent<CharacterHealth>().TakeDamage(damageValue);
         
-    }
+    }   
 
+    public int getAttackDistance()
+    {
+        return attackDistance;
+    }
 }
