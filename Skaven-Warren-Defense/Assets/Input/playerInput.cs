@@ -24,7 +24,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     ""name"": ""playerInput"",
     ""maps"": [
         {
-            ""name"": ""ground"",
+            ""name"": ""Controls"",
             ""id"": ""e2c3fb49-169c-442a-a0e1-7f03638a20cb"",
             ""actions"": [
                 {
@@ -35,6 +35,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Spell Cast"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""5e189463-9547-442a-8cb4-a4b6d1bbef39"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -147,15 +156,27 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7ffa0123-d8a3-470b-a338-ed41e4c258a8"",
+                    ""path"": ""<Keyboard>/#(E)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Spell Cast"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
     ],
     ""controlSchemes"": []
 }");
-        // ground
-        m_ground = asset.FindActionMap("ground", throwIfNotFound: true);
-        m_ground_movement = m_ground.FindAction("movement", throwIfNotFound: true);
+        // Controls
+        m_Controls = asset.FindActionMap("Controls", throwIfNotFound: true);
+        m_Controls_movement = m_Controls.FindAction("movement", throwIfNotFound: true);
+        m_Controls_SpellCast = m_Controls.FindAction("Spell Cast", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -212,40 +233,49 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // ground
-    private readonly InputActionMap m_ground;
-    private IGroundActions m_GroundActionsCallbackInterface;
-    private readonly InputAction m_ground_movement;
-    public struct GroundActions
+    // Controls
+    private readonly InputActionMap m_Controls;
+    private IControlsActions m_ControlsActionsCallbackInterface;
+    private readonly InputAction m_Controls_movement;
+    private readonly InputAction m_Controls_SpellCast;
+    public struct ControlsActions
     {
         private @PlayerInput m_Wrapper;
-        public GroundActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @movement => m_Wrapper.m_ground_movement;
-        public InputActionMap Get() { return m_Wrapper.m_ground; }
+        public ControlsActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
+        public InputAction @movement => m_Wrapper.m_Controls_movement;
+        public InputAction @SpellCast => m_Wrapper.m_Controls_SpellCast;
+        public InputActionMap Get() { return m_Wrapper.m_Controls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(GroundActions set) { return set.Get(); }
-        public void SetCallbacks(IGroundActions instance)
+        public static implicit operator InputActionMap(ControlsActions set) { return set.Get(); }
+        public void SetCallbacks(IControlsActions instance)
         {
-            if (m_Wrapper.m_GroundActionsCallbackInterface != null)
+            if (m_Wrapper.m_ControlsActionsCallbackInterface != null)
             {
-                @movement.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnMovement;
-                @movement.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnMovement;
-                @movement.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnMovement;
+                @movement.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnMovement;
+                @movement.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnMovement;
+                @movement.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnMovement;
+                @SpellCast.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnSpellCast;
+                @SpellCast.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnSpellCast;
+                @SpellCast.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnSpellCast;
             }
-            m_Wrapper.m_GroundActionsCallbackInterface = instance;
+            m_Wrapper.m_ControlsActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @movement.started += instance.OnMovement;
                 @movement.performed += instance.OnMovement;
                 @movement.canceled += instance.OnMovement;
+                @SpellCast.started += instance.OnSpellCast;
+                @SpellCast.performed += instance.OnSpellCast;
+                @SpellCast.canceled += instance.OnSpellCast;
             }
         }
     }
-    public GroundActions @ground => new GroundActions(this);
-    public interface IGroundActions
+    public ControlsActions @Controls => new ControlsActions(this);
+    public interface IControlsActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnSpellCast(InputAction.CallbackContext context);
     }
 }
