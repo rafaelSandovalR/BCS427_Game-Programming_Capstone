@@ -1,5 +1,5 @@
 {
-    "name": "player",
+    "name": "playerInput",
     "maps": [
         {
             "name": "ground",
@@ -13,6 +13,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "SpellCast",
+                    "type": "PassThrough",
+                    "id": "0e906cdd-b84e-408f-a9ec-e45727282cf7",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -125,6 +134,17 @@
                     "action": "movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "c7c7478d-e59c-46c7-a332-0ab1d00acbaf",
+                    "path": "<Keyboard>/#(E)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SpellCast",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

@@ -35,6 +35,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""SpellCast"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""0e906cdd-b84e-408f-a9ec-e45727282cf7"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -147,6 +156,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c7c7478d-e59c-46c7-a332-0ab1d00acbaf"",
+                    ""path"": ""<Keyboard>/#(E)"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpellCast"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -156,6 +176,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         // ground
         m_ground = asset.FindActionMap("ground", throwIfNotFound: true);
         m_ground_movement = m_ground.FindAction("movement", throwIfNotFound: true);
+        m_ground_SpellCast = m_ground.FindAction("SpellCast", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -216,11 +237,13 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_ground;
     private IGroundActions m_GroundActionsCallbackInterface;
     private readonly InputAction m_ground_movement;
+    private readonly InputAction m_ground_SpellCast;
     public struct GroundActions
     {
         private @PlayerInput m_Wrapper;
         public GroundActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @movement => m_Wrapper.m_ground_movement;
+        public InputAction @SpellCast => m_Wrapper.m_ground_SpellCast;
         public InputActionMap Get() { return m_Wrapper.m_ground; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -233,6 +256,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @movement.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnMovement;
                 @movement.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnMovement;
                 @movement.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnMovement;
+                @SpellCast.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnSpellCast;
+                @SpellCast.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnSpellCast;
+                @SpellCast.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnSpellCast;
             }
             m_Wrapper.m_GroundActionsCallbackInterface = instance;
             if (instance != null)
@@ -240,6 +266,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @movement.started += instance.OnMovement;
                 @movement.performed += instance.OnMovement;
                 @movement.canceled += instance.OnMovement;
+                @SpellCast.started += instance.OnSpellCast;
+                @SpellCast.performed += instance.OnSpellCast;
+                @SpellCast.canceled += instance.OnSpellCast;
             }
         }
     }
@@ -247,5 +276,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     public interface IGroundActions
     {
         void OnMovement(InputAction.CallbackContext context);
+        void OnSpellCast(InputAction.CallbackContext context);
     }
 }
