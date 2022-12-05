@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Hierarchy
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 76
+  controlID: 65
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 21
+  controlID: 55
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 22
+  controlID: 56
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -317,22 +317,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Free Low Poly Desert Pack/Unity Prefabs/Bones
+    - Assets/Free Low Poly Desert Pack
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Free Low Poly Desert Pack/Unity Prefabs/Bones
+  - Assets/Free Low Poly Desert Pack
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\User\Desktop\Unity Projects\BCS427_Game-Programming_Capstone\Skaven-Warren-Defense
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 31}
-    m_SelectedIDs: 1e690000
-    m_LastClickedID: 26910
-    m_ExpandedIDs: 00000000ea5d0000685e0000705e0000745e00001a69000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 79}
+    m_SelectedIDs: 02600000
+    m_LastClickedID: 24578
+    m_ExpandedIDs: 00000000785f0000026000003c60000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -360,7 +360,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ea5d0000
+    m_ExpandedIDs: 00000000785f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -487,10 +487,10 @@ MonoBehaviour:
     m_SaveData: []
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 73.20001}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: f4d2ffff0ee4ffffdae6fffff4f5ffffeef6ffff22faffff34fbffff
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 86c6ffff
+      m_LastClickedID: -14714
+      m_ExpandedIDs: eee6ffffcae8ffff34ebffff44edffff82eeffff40efffffe4f0ffffb2f1ffff5af3ffff30f8ffff34fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -739,9 +739,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 392.34406, y: 0.527169, z: 568.4399}
+    m_Target: {x: 606.263, y: 21.099894, z: 656.61017}
     speed: 2
-    m_Value: {x: 392.34406, y: 0.527169, z: 568.4399}
+    m_Value: {x: 606.263, y: 21.099894, z: 656.61017}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -788,13 +788,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.0044899825, y: -0.9915775, z: 0.0358282, w: -0.12453775}
+    m_Target: {x: 0.12645179, y: -0.08989446, z: 0.011518783, w: 0.98785394}
     speed: 2
-    m_Value: {x: -0.004489894, y: -0.991558, z: 0.035827495, w: -0.1245353}
+    m_Value: {x: 0.12353338, y: -0.08547816, z: 0.010692895, w: 0.9885943}
   m_Size:
-    m_Target: 2.775373
+    m_Target: 2.2748842
     speed: 2
-    m_Value: 2.775373
+    m_Value: 2.2748842
   m_Ortho:
     m_Target: 0
     speed: 2
