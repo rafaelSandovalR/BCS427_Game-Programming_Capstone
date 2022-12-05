@@ -26,7 +26,8 @@ public class GameManager : MonoBehaviour
 
     public AudioSource gameMusic;   // Music during gameplay
 
-
+    public Camera mainCamera;
+    public Camera secondCamera;
 
 
 
@@ -48,6 +49,8 @@ public class GameManager : MonoBehaviour
         currentTime = startingTime;
         
         UpdateGameObjects();
+
+        secondCamera.enabled = false;
         UpdateGameState(GameState.Idle);
         
         //handle spawning allies ?
@@ -56,7 +59,17 @@ public class GameManager : MonoBehaviour
     void UpdateGameObjects()
     {
         if (player == null)
+        {
             player = GameObject.FindGameObjectWithTag("Player");
+        }
+        if(mainCamera == null)
+        {
+            mainCamera = (Camera)GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        }
+        if(secondCamera == null)
+        {
+            secondCamera = (Camera)GameObject.FindGameObjectWithTag("SecondCamera").GetComponent<Camera>();
+        }
     }
 
     public void UpdateGameState(GameState newState)
@@ -135,9 +148,13 @@ public class GameManager : MonoBehaviour
         //switch to next level
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-
+        if (Input.GetKey(KeyCode.I))
+        {
+            mainCamera.enabled = !mainCamera.enabled;
+            secondCamera.enabled = !secondCamera.enabled;
+        }
         //update ui
 
         //handle timer
