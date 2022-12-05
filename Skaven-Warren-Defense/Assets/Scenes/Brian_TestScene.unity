@@ -724,7 +724,6 @@ Transform:
 
   m_Father: {fileID: 156780588}
   m_RootOrder: 2
-
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1359915571
 GameObject:
@@ -823,7 +822,6 @@ Transform:
 
   m_Father: {fileID: 156780588}
   m_RootOrder: 1
-
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1428077235
 PrefabInstance:
@@ -923,7 +921,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-
   sightDistance: 2
   speed: 10
 
@@ -1421,7 +1418,6 @@ Transform:
 
   m_Father: {fileID: 156780588}
   m_RootOrder: 4
-
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2119885137
 PrefabInstance:
@@ -1430,6 +1426,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3780107680103089900, guid: 14c23afa9711d0a428b9911f08cefa72, type: 3}
+      propertyPath: speed
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 3780107680103089900, guid: 14c23afa9711d0a428b9911f08cefa72, type: 3}
       propertyPath: waypoints.Array.size
       value: 4
