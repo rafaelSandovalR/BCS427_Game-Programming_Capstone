@@ -28,6 +28,10 @@ public class MenuRunning : MonoBehaviour
         if (dist > minDist)
         {
             transform.position += transform.forward * speed * Time.deltaTime;
+            if (!WalkingNoise.WNInstance.Audio.isPlaying)
+            {
+                WalkingNoise.WNInstance.Audio.Play();
+            }
         }
     }
 }

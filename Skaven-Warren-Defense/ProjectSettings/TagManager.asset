@@ -7,7 +7,6 @@ TagManager:
   - Ground
   - Ally
   - Enemy
-  - Wave
   layers:
   - Default
   - TransparentFX
