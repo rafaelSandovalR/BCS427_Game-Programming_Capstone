@@ -8,9 +8,14 @@ public class PlayerMagicSystem : MonoBehaviour
 
     [SerializeField] private float maxMana = 100f;
     [SerializeField] private float currentMana;
+
     [SerializeField] private float manaRechargeRate = 2f;
+
     [SerializeField] private float timeBetweenCasts = 0.25f;
     private float currentCastTimer;
+
+    [SerializeField] private float timeToWaitforRecharge = 1f;
+    private float currentManaRechargeTimer;
 
     [SerializeField] private Transform castPoint;
 
@@ -22,6 +27,7 @@ public class PlayerMagicSystem : MonoBehaviour
     private void Awake()
     {
         playerInput = new PlayerInput();
+        currentMana = maxMana;
     }
 
     private void OnEnable()
@@ -38,11 +44,16 @@ public class PlayerMagicSystem : MonoBehaviour
     void Update()
     {
         bool isSpellCastHeldDown = playerInput.ground.SpellCast.ReadValue<float>() > 0.1;
+        bool hasEnoughMana = currentMana - spellToCast.SpellToCast.ManaCost >= 0f;
 
-        if(!castingMagic && isSpellCastHeldDown)
+        if(!castingMagic && isSpellCastHeldDown && hasEnoughMana)
         {
             castingMagic = true;
+            currentMana -= spellToCast.SpellToCast.ManaCost;
+
             currentCastTimer = 0;
+            currentManaRechargeTimer = 0;
+
             CastSpell();
         }
         if(castingMagic)
@@ -52,6 +63,22 @@ public class PlayerMagicSystem : MonoBehaviour
             {
                 castingMagic = false;
             }
+        }
+
+        if(currentMana < maxMana && !castingMagic && !isSpellCastHeldDown)
+        {
+            currentManaRechargeTimer += Time.deltaTime;
+
+            if(currentManaRechargeTimer > timeToWaitforRecharge)
+            {
+                currentMana += manaRechargeRate * Time.deltaTime;
+
+                if (currentMana > maxMana)
+                {
+                    currentMana = maxMana;
+                }
+            }
+
         }
     }
 
