@@ -8,7 +8,8 @@ using UnityEngine;
 public class Chaser : MonoBehaviour
 {
     public Transform target;
-    public float sightDistance = 2f;
+    public float maxDistance = 2f;
+    public float minDistance = .5f;
     public float speed = 10.0f;
 
 
@@ -34,9 +35,9 @@ public class Chaser : MonoBehaviour
     void Update()
     {
         
-        
         if(target == null)
         {
+            
             return;
         }
 
@@ -47,15 +48,22 @@ public class Chaser : MonoBehaviour
         // if object is close enough, move towards target
         
         
-        if(dist <= this.GetComponent<DamageValue>().getAttackDistance())
+        if(dist <= minDistance)
         {
+            if (WalkingNoise.WNInstance.Audio.isPlaying)
+            {
+                WalkingNoise.WNInstance.Audio.Stop();
+            }
+
             return;
-        }
-        
-        
-        else if(dist < sightDistance)
+        }   
+        else if(dist < maxDistance)
         {
             transform.position += transform.forward * speed * Time.deltaTime;
+            if (!WalkingNoise.WNInstance.Audio.isPlaying)
+            {
+                WalkingNoise.WNInstance.Audio.Play();
+            }
         }
     }
 }

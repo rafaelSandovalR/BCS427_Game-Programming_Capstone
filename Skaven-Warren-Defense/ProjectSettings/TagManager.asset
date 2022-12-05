@@ -8,6 +8,9 @@ TagManager:
   - Ally
   - Enemy
   - Wave
+  - enemy
+  - SecondCamera
+
   layers:
   - Default
   - TransparentFX

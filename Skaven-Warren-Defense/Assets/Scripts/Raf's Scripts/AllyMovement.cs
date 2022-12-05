@@ -24,8 +24,11 @@ public class AllyMovement : MonoBehaviour
 
             if (Physics.Raycast(myRay, out hitInfo, 100, whatCanBeClickedOn))
             {
+                
                 myAgent.SetDestination(hitInfo.point);
             }
+            
+            
         }
 
     }

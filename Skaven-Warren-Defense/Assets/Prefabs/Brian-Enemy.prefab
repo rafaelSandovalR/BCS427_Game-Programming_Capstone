@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 324197769073524768}
   - component: {fileID: 5350526743761231125}
   - component: {fileID: 5172790448147257424}
-  - component: {fileID: -615758529553109011}
   m_Layer: 0
   m_Name: Brian-Enemy
   m_TagString: Untagged
@@ -115,18 +114,3 @@ MonoBehaviour:
   speed: 20
   minDist: 1
   target: {fileID: 0}
---- !u!114 &-615758529553109011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 405569450344276682}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7c5800d5ca2c004fa5d8ab62509a428, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 100
-  healthbar: {fileID: 0}

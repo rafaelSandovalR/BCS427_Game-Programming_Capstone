@@ -4,13 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//Skaven Warren Defense
-
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public GameState gameState;
     public static event Action<GameState> OnGameStateChanged;
+
 
     public GameObject player;       //Main Character
     public GameObject enemyWave;    // EnemySpawner object?
@@ -26,8 +25,8 @@ public class GameManager : MonoBehaviour
 
     public AudioSource gameMusic;   // Music during gameplay
 
-
-
+    public Camera mainCamera;
+    public Camera secondCamera;
 
 
     private void Awake()
@@ -43,20 +42,29 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Start is called before the first frame update
     void Start()
     {
-        currentTime = startingTime;
-        
         UpdateGameObjects();
+
+        secondCamera.enabled = false;
         UpdateGameState(GameState.Idle);
-        
-        //handle spawning allies ?
     }
 
     void UpdateGameObjects()
     {
         if (player == null)
+        {
             player = GameObject.FindGameObjectWithTag("Player");
+        }
+        if(mainCamera == null)
+        {
+            mainCamera = (Camera)GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        }
+        if(secondCamera == null)
+        {
+            secondCamera = (Camera)GameObject.FindGameObjectWithTag("SecondCamera").GetComponent<Camera>();
+        }
     }
 
     public void UpdateGameState(GameState newState)
@@ -70,8 +78,7 @@ public class GameManager : MonoBehaviour
                 gameState = GameState.Idle;
                 break;
             case GameState.NextLevelPlay:
- // THE COMMENTS IN THIS SECTION ARE FOR REFERENCE FROM OTHER GAME
-                //startBtn.SetActive(false);   
+                //startBtn.SetActive(false);
                 HandlePlayingGame();
                 break;
             case GameState.Playing:
@@ -84,6 +91,7 @@ public class GameManager : MonoBehaviour
                 HandleWinLevel();
                 break;
             case GameState.LoseLevel:
+
                 //continueBtn.SetActive(false);
                 //lostGameText.SetActive(true);
                 //mainUI.SetActive(true);
@@ -102,27 +110,12 @@ public class GameManager : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player");
         }
 
+
         player.SetActive(true);
 
         //when the player wins a level
-        if(waveCount < 3  && enemyCount == 0)
-        {
-            UpdateGameState(GameState.WinLevel);
-        }
 
         //when the player loses a level
-        if (player == null)
-        {
-            UpdateGameState(GameState.LoseLevel);
-        }
-
-
-        //when the player wins the game
-        if (waveCount == 3 && enemyCount == 0)
-        {
-            UpdateGameState(GameState.WinGame);
-        }
-
     }
 
     public void HandleWinLevel()
@@ -130,13 +123,24 @@ public class GameManager : MonoBehaviour
         if (player == null)
             player = GameObject.FindGameObjectWithTag("Player");
 
+        if (!WinAudio.WAInstance.Audio.isPlaying)
+        {
+            WinAudio.WAInstance.Audio.Play();
+        }
+
         //handle ui
 
         //switch to next level
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
+
+        if (Input.GetKey(KeyCode.I))
+        {
+            mainCamera.enabled = !mainCamera.enabled;
+            secondCamera.enabled = !secondCamera.enabled;
+        }
 
         //update ui
 
