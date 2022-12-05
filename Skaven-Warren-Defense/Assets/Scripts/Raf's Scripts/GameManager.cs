@@ -9,7 +9,24 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
     public static event Action<GameState> OnGameStateChanged;
 
-    public GameObject player;
+
+    public GameObject player;       //Main Character
+    public GameObject enemyWave;    // EnemySpawner object?
+
+    public int waveCount = 1;            // Keeps track of wave
+
+    public int enemyCount;          // Keeps track of enemies left in wave
+    public Text enemyCounterDisplay;
+
+    public float startingTime;      // Time to begin with
+    private float currentTime;       // Time to countdown
+    public Text timerDisplay;
+
+    public AudioSource gameMusic;   // Music during gameplay
+
+    public Camera mainCamera;
+    public Camera secondCamera;
+
 
     private void Awake()
     {
@@ -28,13 +45,25 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         UpdateGameObjects();
+
+        secondCamera.enabled = false;
         UpdateGameState(GameState.Idle);
     }
 
     void UpdateGameObjects()
     {
         if (player == null)
+        {
             player = GameObject.FindGameObjectWithTag("Player");
+        }
+        if(mainCamera == null)
+        {
+            mainCamera = (Camera)GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        }
+        if(secondCamera == null)
+        {
+            secondCamera = (Camera)GameObject.FindGameObjectWithTag("SecondCamera").GetComponent<Camera>();
+        }
     }
 
     public void UpdateGameState(GameState newState)
@@ -105,6 +134,13 @@ public class GameManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        if (Input.GetKey(KeyCode.I))
+        {
+            mainCamera.enabled = !mainCamera.enabled;
+            secondCamera.enabled = !secondCamera.enabled;
+        }
+
         //update ui
 
         //handle timer
