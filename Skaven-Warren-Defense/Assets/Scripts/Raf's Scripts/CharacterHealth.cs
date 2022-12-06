@@ -27,7 +27,7 @@ public class CharacterHealth : MonoBehaviour
         if (health <= 0)
         {
             DeathNoise.DNInstance.Audio.Play();
-            Destroy(gameObject);
+            Destroy(this.gameObject);
         }
     }
 }
