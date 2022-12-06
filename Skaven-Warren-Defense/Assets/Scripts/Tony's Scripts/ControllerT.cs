@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ControllerT : MonoBehaviour {
+public class Controller : MonoBehaviour {
 
 
     public float moveSpeed = 2.0f;
