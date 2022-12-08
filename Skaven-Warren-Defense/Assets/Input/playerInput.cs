@@ -44,6 +44,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Attack"",
+                    ""type"": ""Button"",
+                    ""id"": ""2eed9fe7-57bb-4ff5-8d32-1f1faba11508"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -167,6 +176,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""SpellCast"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""69fe1c7f-557a-4025-bce6-8fc5c4360e69"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -177,6 +197,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_ground = asset.FindActionMap("ground", throwIfNotFound: true);
         m_ground_movement = m_ground.FindAction("movement", throwIfNotFound: true);
         m_ground_SpellCast = m_ground.FindAction("SpellCast", throwIfNotFound: true);
+        m_ground_Attack = m_ground.FindAction("Attack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -238,12 +259,14 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private IGroundActions m_GroundActionsCallbackInterface;
     private readonly InputAction m_ground_movement;
     private readonly InputAction m_ground_SpellCast;
+    private readonly InputAction m_ground_Attack;
     public struct GroundActions
     {
         private @PlayerInput m_Wrapper;
         public GroundActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @movement => m_Wrapper.m_ground_movement;
         public InputAction @SpellCast => m_Wrapper.m_ground_SpellCast;
+        public InputAction @Attack => m_Wrapper.m_ground_Attack;
         public InputActionMap Get() { return m_Wrapper.m_ground; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -259,6 +282,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @SpellCast.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnSpellCast;
                 @SpellCast.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnSpellCast;
                 @SpellCast.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnSpellCast;
+                @Attack.started -= m_Wrapper.m_GroundActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_GroundActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_GroundActionsCallbackInterface.OnAttack;
             }
             m_Wrapper.m_GroundActionsCallbackInterface = instance;
             if (instance != null)
@@ -269,6 +295,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @SpellCast.started += instance.OnSpellCast;
                 @SpellCast.performed += instance.OnSpellCast;
                 @SpellCast.canceled += instance.OnSpellCast;
+                @Attack.started += instance.OnAttack;
+                @Attack.performed += instance.OnAttack;
+                @Attack.canceled += instance.OnAttack;
             }
         }
     }
@@ -277,5 +306,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnSpellCast(InputAction.CallbackContext context);
+        void OnAttack(InputAction.CallbackContext context);
     }
 }

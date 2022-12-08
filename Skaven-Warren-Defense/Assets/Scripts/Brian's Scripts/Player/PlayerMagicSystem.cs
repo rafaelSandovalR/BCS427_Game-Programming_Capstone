@@ -11,6 +11,8 @@ public class PlayerMagicSystem : MonoBehaviour
     public float maxMana = 100f;
     public float currentMana;
 
+    public healthSlider manaBar;
+
     [SerializeField] private float manaRechargeRate = 2f;
 
     [SerializeField] private float timeBetweenCasts = 0.25f;
@@ -30,6 +32,7 @@ public class PlayerMagicSystem : MonoBehaviour
     {
         playerInput = new PlayerInput();
         currentMana = maxMana;
+        manaBar.setMax(maxMana);
     }
 
     private void OnEnable()
@@ -45,6 +48,7 @@ public class PlayerMagicSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        manaBar.CurrentHealth(currentMana);
         bool isSpellCastHeldDown = playerInput.ground.SpellCast.ReadValue<float>() > 0.1;
         bool hasEnoughMana = currentMana - spellToCast.SpellToCast.ManaCost >= 0f;
 

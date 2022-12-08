@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class playerHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
-    public int currerntHealth;
+    public float maxHealth = 100;
+    public float currerntHealth;
 
     public healthSlider healthBar;
     // Start is called before the first frame update
@@ -24,7 +24,7 @@ public class playerHealth : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damage)
+    void TakeDamage(float damage)
     {
         if (currerntHealth != 0)
         {

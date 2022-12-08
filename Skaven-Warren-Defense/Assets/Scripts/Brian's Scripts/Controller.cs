@@ -32,13 +32,15 @@ public class ControllerT : MonoBehaviour {
 
         mController.Move(mov);
 
- //       if (Input.GetAxisRaw("Vertical") != 0) {
- //       animator.SetBool("isRunning", true);
- //       }
+       if (Input.GetAxisRaw("Vertical") != 0) {
+        animator.SetBool("isRunning", true);
+        }
 
  //       if (Input.GetAxisRaw("Vertical") == 0)
  //       {
  //           animator.SetBool("isRunning", true);
  //       }
     }
+
+
 }

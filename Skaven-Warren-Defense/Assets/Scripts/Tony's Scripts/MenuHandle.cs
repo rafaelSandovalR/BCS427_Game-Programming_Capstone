@@ -7,7 +7,7 @@ public class MenuHandle : MonoBehaviour
 {
     public GameObject primaryMenu;
     public GameObject nextMenu;
-    public int playerChoice;
+    private int playerChoice;
     public int playerNum;
     private bool windowScre = true;
 
