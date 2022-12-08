@@ -8,7 +8,9 @@ public class DamageValue : MonoBehaviour
 
     private GameState state;
     public CharacterHealth characterHealth;
+    public playerHealth PlayerHealth;
     public int damageValue = 10;
+    private float playerDamage;
 
     public GameObject target;
 
@@ -19,6 +21,7 @@ public class DamageValue : MonoBehaviour
     void Start()
     {
         GameManager.OnGameStateChanged += GMOnGameStateChanged;
+        playerDamage = damageValue;
     }
 
     private void GMOnGameStateChanged(GameState newState)
@@ -71,7 +74,7 @@ public class DamageValue : MonoBehaviour
     {
 
         target.GetComponent<CharacterHealth>().TakeDamage(damageValue);
-
+        target.GetComponent<playerHealth>().TakeDamage(playerDamage);
     }
 
     public int getAttackDistance()

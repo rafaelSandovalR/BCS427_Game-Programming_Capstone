@@ -22,9 +22,11 @@ public class playerHealth : MonoBehaviour
         {
             TakeDamage(20);
         }
+
+
     }
 
-    void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         if (currerntHealth != 0)
         {
