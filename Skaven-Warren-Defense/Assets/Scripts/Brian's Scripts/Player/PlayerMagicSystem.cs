@@ -6,8 +6,10 @@ public class PlayerMagicSystem : MonoBehaviour
 {
     [SerializeField] private Spell spellToCast;
 
-    [SerializeField] private float maxMana = 100f;
-    [SerializeField] private float currentMana;
+    //[SerializeField] private float maxMana = 100f;
+    //[SerializeField] private float currentMana;
+    public float maxMana = 100f;
+    public float currentMana;
 
     [SerializeField] private float manaRechargeRate = 2f;
 
