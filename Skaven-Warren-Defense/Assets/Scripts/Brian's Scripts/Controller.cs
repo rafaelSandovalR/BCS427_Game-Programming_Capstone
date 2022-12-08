@@ -14,9 +14,11 @@ public class ControllerT : MonoBehaviour {
         mController = this.gameObject.GetComponent<CharacterController>();
         animator = this.gameObject.GetComponent<Animator>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update() {
+
+        animator.SetBool("isDamageTaking", false);
 
         Vector3 movZ = Input.GetAxis("Vertical")
                            * Vector3.forward * moveSpeed;
@@ -30,8 +32,13 @@ public class ControllerT : MonoBehaviour {
 
         mController.Move(mov);
 
-        animator.SetBool("isRunning", Input.GetAxisRaw("Vertical") != 0);
+ //       if (Input.GetAxisRaw("Vertical") != 0) {
+ //       animator.SetBool("isRunning", true);
+ //       }
 
-
+ //       if (Input.GetAxisRaw("Vertical") == 0)
+ //       {
+ //           animator.SetBool("isRunning", true);
+ //       }
     }
 }
