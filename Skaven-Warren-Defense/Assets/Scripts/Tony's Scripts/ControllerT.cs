@@ -18,6 +18,8 @@ public class Controller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+        //animator.SetBool("isDamageTaking", false);
+
         Vector3 movZ = Input.GetAxis("Vertical")
                            * Vector3.forward * moveSpeed;
 
@@ -30,7 +32,16 @@ public class Controller : MonoBehaviour {
 
         mController.Move(mov);
 
-        animator.SetBool("isRunning", Input.GetAxisRaw("Vertical") != 0);
+        //animator.SetBool("isRunning", Input.GetAxisRaw("Vertical") != 0);
+        //animator.SetBool("isRange", Input.GetButtonDown("e"));
+        //       if (Input.GetAxisRaw("Vertical") != 0) {
+        //       animator.SetBool("isRunning", true);
+        //       }
+
+        //       if (Input.GetAxisRaw("Vertical") == 0)
+        //       {
+        //           animator.SetBool("isRunning", true);
+        //       }
 
 
     }
