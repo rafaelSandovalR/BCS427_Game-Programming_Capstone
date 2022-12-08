@@ -8,7 +8,7 @@ using UnityEngine;
 public class Chaser : MonoBehaviour
 {
     public GameObject closestTarget;
-    public float maxDistance = 2f;
+    public float maxDistance = 20f;
     public float minDistance = .5f;
     public float speed = 10.0f;
     public List <GameObject> targets;

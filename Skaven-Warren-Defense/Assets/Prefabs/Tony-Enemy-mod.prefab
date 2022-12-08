@@ -279,7 +279,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6399724310316758852, guid: 8ec1142ba63200f49a07faa89e369b14, type: 3}
       propertyPath: m_Name
-      value: Raf_LongRange-Enemy
+      value: Tony-Enemy-mod
       objectReference: {fileID: 0}
     - target: {fileID: 7982781998654467290, guid: 8ec1142ba63200f49a07faa89e369b14, type: 3}
       propertyPath: m_RootOrder
@@ -325,7 +325,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8749885058457417015, guid: 8ec1142ba63200f49a07faa89e369b14, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7982781998654467290, guid: 8ec1142ba63200f49a07faa89e369b14, type: 3}
       insertIndex: -1
@@ -351,6 +352,23 @@ MonoBehaviour:
   health: 0
   maxHealth: 100
   healthbar: {fileID: 393242100}
+--- !u!114 &2926499194377450604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6110004682509921703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca42eb7c9fa4d4479222d5fb8bfec75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  closestTarget: {fileID: 0}
+  maxDistance: 20
+  minDistance: 0.5
+  speed: 10
+  targets: []
 --- !u!4 &7121301888880358969 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7982781998654467290, guid: 8ec1142ba63200f49a07faa89e369b14, type: 3}
