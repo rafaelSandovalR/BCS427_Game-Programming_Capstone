@@ -28,9 +28,13 @@ public class DamageValue : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Ally")
+        if (gameObject.tag == "Enemy")
         {
-            characterHealth.TakeDamage(damageValue);
+            if (collision.gameObject.tag == "Ally"
+                || collision.gameObject.tag == "Player")
+            {
+                characterHealth.TakeDamage(damageValue);
+            }
         }
     }
 }
