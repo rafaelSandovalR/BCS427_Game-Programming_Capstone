@@ -1050,7 +1050,7 @@ GameObject:
   - component: {fileID: 464121155}
   - component: {fileID: 464121154}
   m_Layer: 5
-  m_Name: Healthbar
+  m_Name: ManaBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4847,6 +4847,26 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 689a36ce1e8152f488b3a0d5fc644805, type: 3}
+--- !u!1 &1716977022 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3821769614063452142, guid: fc20685558678f44dbf311c50814cdc5, type: 3}
+  m_PrefabInstance: {fileID: 1110756253}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1716977032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716977022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20b5983048a73840a0b860b28bc3c88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  currerntHealth: 0
+  healthBar: {fileID: 612733218}
 --- !u!1 &1750465785 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 145826, guid: 35d82b3ae8f9c4f42b6b11ccb42803cd, type: 3}
