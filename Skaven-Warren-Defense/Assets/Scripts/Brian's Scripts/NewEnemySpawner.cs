@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class NewEnemySpawner : MonoBehaviour
 {
+    [SerializeField]
+    private int waveCount;
     //enemies to spawn in 
     [SerializeField]
     private GameObject enemyPrefab;
@@ -21,8 +23,8 @@ public class NewEnemySpawner : MonoBehaviour
     private float currentTime1 = 0f;
 
     //amount of enemies to spawn in
-    [SerializeField]
-    private int countEnemy = 10;
+    
+    public int countEnemy = 10;
     [SerializeField]
     private int countBigEnemy = 5;
 
@@ -30,10 +32,12 @@ public class NewEnemySpawner : MonoBehaviour
     private int count = 0;
     private int countBig = 0;
 
+    public List<GameObject> enemies;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        enemies = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -47,6 +51,7 @@ public class NewEnemySpawner : MonoBehaviour
         if(currentTime > enemySpawnInterval && countEnemy > count)
         {
             GameObject newEnemy = Instantiate(enemyPrefab, new Vector3(Random.Range(-10f, 10), 1, 0), Quaternion.identity);
+            enemies.Add(newEnemy);
             currentTime = 0;
             count++;
         }
