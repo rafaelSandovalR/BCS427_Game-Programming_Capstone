@@ -7,47 +7,64 @@ using UnityEngine;
 
 public class Chaser : MonoBehaviour
 {
-    public Transform target;
+    public GameObject closestTarget;
     public float maxDistance = 2f;
     public float minDistance = .5f;
     public float speed = 10.0f;
-
+    public List <GameObject> targets;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (target == null)
+        if (closestTarget == null)
         {
-            // sets target at the start of the game.
-            // can be used for enemies or allies
-            if (gameObject.tag == "Ally")
-            {
-                target = GameObject.FindWithTag("Enemy").transform;
-            }
-            else
-            {
-                target = GameObject.FindWithTag("Ally").transform;
-            }
+            findClosestTarget();
         }
     }
 
-    // Update is called once per frame
+    void findClosestTarget()
+    {
+        // makes a list of potential allies
+        if (gameObject.tag == "Ally")
+        {
+            targets = new List<GameObject> (GameObject.FindGameObjectsWithTag("Enemy"));
+
+        }
+        else
+        {
+            targets = new List<GameObject>(GameObject.FindGameObjectsWithTag("Ally"));
+            targets.Add(GameObject.FindWithTag("Player"));
+        }
+
+        // determines the closest enemy to lock on
+        float smallestDistance = maxDistance;
+        float distance = 0;
+        targets.ForEach(delegate (GameObject go)
+        {
+            distance = Vector3.Distance(transform.position, go.transform.position);
+            if (distance < smallestDistance)
+            {
+                closestTarget = go;
+            }
+        });
+    }
+
+
     void Update()
     {
         
-        if(target == null)
+        if(closestTarget == null)
         {
             
-            return;
+            findClosestTarget();
         }
 
-        transform.LookAt(target);
+        transform.LookAt(closestTarget.transform);
         // calculates distance between targets position and objects position.
-        float dist = Vector3.Distance(transform.position, target.position);
+        float dist = Vector3.Distance(transform.position, closestTarget.transform.position); ;
 
         // if object is close enough, move towards target
-        
-        
+                
         if(dist <= minDistance)
         {
             if (WalkingNoise.WNInstance.Audio.isPlaying)
