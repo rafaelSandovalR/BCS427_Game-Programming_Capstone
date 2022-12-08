@@ -7,12 +7,8 @@ public class DamageValue : MonoBehaviour
 {
 
     private GameState state;
-    public CharacterHealth characterHealth;
-    public playerHealth PlayerHealth;
     public int damageValue = 10;
-
     public GameObject target;
-
     public int attackDistance = 1;
     public int rateOfAttack = 1;
     public int count;
@@ -34,7 +30,7 @@ public class DamageValue : MonoBehaviour
         {
             count++;
 
-            if (count % (1000 / rateOfAttack) == 0)
+            if ((count % (1000 / rateOfAttack)) == 0)
             {
                 attack();
 
@@ -78,12 +74,14 @@ public class DamageValue : MonoBehaviour
     private void attack()
     {
 
-        target.GetComponent<CharacterHealth>().TakeDamage(damageValue);
         if (target.CompareTag("Player"))
         {
             target.GetComponent<playerHealth>().TakeDamage(damageValue);
         }
-
+        else
+        {
+            target.GetComponent<CharacterHealth>().TakeDamage(damageValue);
+        }
     }
 
     public int getAttackDistance()
