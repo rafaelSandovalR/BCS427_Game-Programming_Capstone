@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CharacterHealth : MonoBehaviour
 {
-    public int health;
-    public int maxHealth = 100;
+    public float health;
+    public float maxHealth = 100;
     public Healthbar healthbar;
     // Start is called before the first frame update
     void Start()
@@ -19,10 +19,11 @@ public class CharacterHealth : MonoBehaviour
 
     }
 
-    public void TakeDamage(int amount)
+    public void TakeDamage(float amount)
     {
-        healthbar.updateHealthBar(maxHealth, health);
+
         health -= amount;
+        healthbar.updateHealthBar(maxHealth, health);
 
         if (health <= 0)
         {

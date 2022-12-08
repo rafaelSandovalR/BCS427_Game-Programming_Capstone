@@ -10,7 +10,6 @@ public class DamageValue : MonoBehaviour
     public CharacterHealth characterHealth;
     public playerHealth PlayerHealth;
     public int damageValue = 10;
-    private float playerDamage;
 
     public GameObject target;
 
@@ -21,7 +20,6 @@ public class DamageValue : MonoBehaviour
     void Start()
     {
         GameManager.OnGameStateChanged += GMOnGameStateChanged;
-        playerDamage = damageValue;
     }
 
     private void GMOnGameStateChanged(GameState newState)
@@ -59,12 +57,19 @@ public class DamageValue : MonoBehaviour
         if (Physics.Raycast(ray, out RaycastHit h, attackDistance))
         {
             target = h.collider.gameObject;
-            if ((gameObject.tag == "Enemy" && (target.CompareTag("Ally") || (target.CompareTag("Player"))))
+            if ((gameObject.tag == "Enemy" && target.CompareTag("Ally"))
                 || (gameObject.tag == "Ally" && target.CompareTag("Enemy")))
             {
+                print("enemy detected");
+                return true;
+            }
+            if (gameObject.tag == "Enemy" && target.CompareTag("Player"))
+            {
+                print("player detected");
                 return true;
             }
         }
+        else { print("nothing detected"); }
 
         target = null;
         return false;
@@ -74,7 +79,11 @@ public class DamageValue : MonoBehaviour
     {
 
         target.GetComponent<CharacterHealth>().TakeDamage(damageValue);
-        target.GetComponent<playerHealth>().TakeDamage(playerDamage);
+        if (target.CompareTag("Player"))
+        {
+            target.GetComponent<playerHealth>().TakeDamage(damageValue);
+        }
+
     }
 
     public int getAttackDistance()

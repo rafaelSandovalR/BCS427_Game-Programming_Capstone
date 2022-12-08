@@ -5,13 +5,13 @@ using UnityEngine;
 public class playerHealth : MonoBehaviour
 {
     public float maxHealth = 100;
-    public float currerntHealth;
+    public float currentHealth;
 
     public healthSlider healthBar;
     // Start is called before the first frame update
     void Start()
     {
-        currerntHealth = maxHealth;
+        currentHealth = maxHealth;
         healthBar.setMax(maxHealth);
     }
 
@@ -28,10 +28,12 @@ public class playerHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (currerntHealth != 0)
+        currentHealth -= damage;
+        healthBar.CurrentHealth(currentHealth);
+        if (currentHealth <= 0)
         {
-        currerntHealth -= damage;
+            Destroy(gameObject);
         }
-        healthBar.CurrentHealth(currerntHealth);
+        
     }
 }
