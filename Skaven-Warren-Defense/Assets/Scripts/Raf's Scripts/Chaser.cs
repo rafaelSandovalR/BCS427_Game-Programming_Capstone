@@ -8,8 +8,7 @@ using UnityEngine;
 public class Chaser : MonoBehaviour
 {
     public GameObject closestTarget;
-    public float maxDistance = 20f;
-    public float minDistance = .5f;
+    public float sightDistance = 20f;
     public float speed = 10.0f;
     public List <GameObject> targets;
 
@@ -35,9 +34,9 @@ public class Chaser : MonoBehaviour
             targets = new List<GameObject>(GameObject.FindGameObjectsWithTag("Ally"));
             targets.Add(GameObject.FindWithTag("Player"));
         }
-
+        
         // determines the closest enemy to lock on
-        float smallestDistance = maxDistance;
+        float smallestDistance = sightDistance;
         float distance = 0;
         targets.ForEach(delegate (GameObject go)
         {
@@ -65,7 +64,7 @@ public class Chaser : MonoBehaviour
 
         // if object is close enough, move towards target
                 
-        if(dist <= minDistance)
+        if(dist <= this.GetComponent<DamageValue>().getAttackDistance())
         {
             if (WalkingNoise.WNInstance.Audio.isPlaying)
             {
@@ -74,7 +73,7 @@ public class Chaser : MonoBehaviour
 
             return;
         }   
-        else if(dist < maxDistance)
+        else if(dist < sightDistance)
         {
             transform.position += transform.forward * speed * Time.deltaTime;
             if (!WalkingNoise.WNInstance.Audio.isPlaying)

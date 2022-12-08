@@ -212,6 +212,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -531,10 +532,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca42eb7c9fa4d4479222d5fb8bfec75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  maxDistance: 10
-  minDistance: 2
+  closestTarget: {fileID: 0}
+  sightDistance: 20
   speed: 10
+  targets: []
 --- !u!114 &6589196129570085498
 MonoBehaviour:
   m_ObjectHideFlags: 0

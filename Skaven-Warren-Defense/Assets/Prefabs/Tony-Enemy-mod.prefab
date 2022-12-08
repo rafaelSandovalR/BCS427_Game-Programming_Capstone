@@ -325,6 +325,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8749885058457417016, guid: 8ec1142ba63200f49a07faa89e369b14, type: 3}
+      propertyPath: damageValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749885058457417016, guid: 8ec1142ba63200f49a07faa89e369b14, type: 3}
+      propertyPath: rateOfAttack
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8749885058457417016, guid: 8ec1142ba63200f49a07faa89e369b14, type: 3}
+      propertyPath: attackDistance
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8749885058457417015, guid: 8ec1142ba63200f49a07faa89e369b14, type: 3}
     m_AddedGameObjects:
@@ -365,9 +377,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closestTarget: {fileID: 0}
-  maxDistance: 20
-  minDistance: 0.5
-  speed: 10
+  sightDistance: 20
+  speed: 5
   targets: []
 --- !u!4 &7121301888880358969 stripped
 Transform:

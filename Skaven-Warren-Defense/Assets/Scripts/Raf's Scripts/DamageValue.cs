@@ -8,7 +8,13 @@ public class DamageValue : MonoBehaviour
 
     private GameState state;
     public CharacterHealth characterHealth;
-    public int damageValue = 5;
+    public int damageValue = 10;
+
+    public GameObject target;
+
+    public int attackDistance = 1;
+    public int rateOfAttack = 1;
+    public int count;
 
     void Start()
     {
@@ -23,18 +29,54 @@ public class DamageValue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (gameObject.tag == "Enemy")
+        if (detectEnemy())
         {
-            if (collision.gameObject.tag == "Ally"
-                || collision.gameObject.tag == "Player")
+            count++;
+
+            if (count % (1000 / rateOfAttack) == 0)
             {
-                characterHealth.TakeDamage(damageValue);
+                attack();
+
             }
+
+        }
+        else
+        {
+            count = 0;
         }
     }
+
+    private bool detectEnemy()
+    {
+        Vector3 origin = transform.position;
+        Vector3 direction = transform.forward;
+        Ray ray = new Ray(origin, direction);
+        Debug.DrawRay(origin, direction * attackDistance, Color.red);
+
+        if (Physics.Raycast(ray, out RaycastHit h, attackDistance))
+        {
+            target = h.collider.gameObject;
+            if ((gameObject.tag == "Enemy" && (target.CompareTag("Ally") || (target.CompareTag("Player"))))
+                || (gameObject.tag == "Ally" && target.CompareTag("Enemy")))
+            {
+                return true;
+            }
+        }
+
+        target = null;
+        return false;
+    }
+
+    private void attack()
+    {
+
+        target.GetComponent<CharacterHealth>().TakeDamage(damageValue);
+
+    }
+
+    public int getAttackDistance()
+    {
+        return attackDistance;
+    }
+
 }

@@ -135,9 +135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ca42eb7c9fa4d4479222d5fb8bfec75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  closestTarget: {fileID: 0}
   sightDistance: 10
-  speed: 2
+  speed: 7
+  targets: []
 --- !u!114 &4508609233313671540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +154,6 @@ MonoBehaviour:
   characterHealth: {fileID: 0}
   damageValue: 20
   target: {fileID: 0}
-  attackDistance: 1
+  attackDistance: 2
   rateOfAttack: 2
   count: 0

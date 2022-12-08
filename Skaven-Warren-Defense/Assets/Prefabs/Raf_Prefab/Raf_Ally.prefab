@@ -212,6 +212,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -431,15 +432,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7872689424603001959}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ca42eb7c9fa4d4479222d5fb8bfec75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  maxDistance: 10
-  minDistance: 2
-  speed: 10
+  closestTarget: {fileID: 0}
+  sightDistance: 20
+  speed: 5
+  targets: []
 --- !u!114 &-1466207644265311407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,14 +448,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7872689424603001959}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63d0fd399f3db194e877f4c884c2025e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   characterHealth: {fileID: 0}
-  damageValue: 5
+  damageValue: 10
   target: {fileID: 0}
-  attackDistance: 1
-  rateOfAttack: 1
+  attackDistance: 2
+  rateOfAttack: 2
   count: 0
