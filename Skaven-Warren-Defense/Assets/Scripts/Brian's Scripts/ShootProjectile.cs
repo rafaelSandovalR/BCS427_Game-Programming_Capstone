@@ -28,6 +28,7 @@ public class ShootProjectile : MonoBehaviour
 				// Apply force to the newProjectile's Rigidbody component if it has one
 				newProjectile.GetComponent<Rigidbody>().AddForce(transform.forward * power, ForceMode.VelocityChange);
 
+				AttackNoise.ANInstance.Audio.Play();
 			}
 		}
 	}

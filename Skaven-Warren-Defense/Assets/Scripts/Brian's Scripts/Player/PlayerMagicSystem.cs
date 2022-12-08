@@ -53,8 +53,9 @@ public class PlayerMagicSystem : MonoBehaviour
 
             currentCastTimer = 0;
             currentManaRechargeTimer = 0;
-
+            
             CastSpell();
+            
         }
         if(castingMagic)
         {

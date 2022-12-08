@@ -32,9 +32,14 @@ public class ControllerT : MonoBehaviour {
 
         mController.Move(mov);
 
+<<<<<<< Updated upstream
  //       if (Input.GetAxisRaw("Vertical") != 0) {
  //       animator.SetBool("isRunning", true);
  //       }
+=======
+        animator.SetBool("isRunning", Input.GetAxisRaw("Vertical") != 0);
+
+>>>>>>> Stashed changes
 
  //       if (Input.GetAxisRaw("Vertical") == 0)
  //       {

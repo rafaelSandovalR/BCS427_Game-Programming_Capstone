@@ -18,8 +18,11 @@ public class Controller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
+<<<<<<< Updated upstream
         //animator.SetBool("isDamageTaking", false);
 
+=======
+>>>>>>> Stashed changes
         Vector3 movZ = Input.GetAxis("Vertical")
                            * Vector3.forward * moveSpeed;
 
@@ -32,6 +35,7 @@ public class Controller : MonoBehaviour {
 
         mController.Move(mov);
 
+<<<<<<< Updated upstream
         //animator.SetBool("isRunning", Input.GetAxisRaw("Vertical") != 0);
         //animator.SetBool("isRange", Input.GetButtonDown("e"));
         //       if (Input.GetAxisRaw("Vertical") != 0) {
@@ -42,6 +46,9 @@ public class Controller : MonoBehaviour {
         //       {
         //           animator.SetBool("isRunning", true);
         //       }
+=======
+        animator.SetBool("isRunning", Input.GetAxisRaw("Vertical") != 0);
+>>>>>>> Stashed changes
 
 
     }
